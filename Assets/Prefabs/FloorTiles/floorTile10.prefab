@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5979912515949913482}
   - component: {fileID: 9063952970368576939}
   - component: {fileID: 2886962623179196963}
+  - component: {fileID: -918965127356606379}
   m_Layer: 0
   m_Name: floorTile10
   m_TagString: Ground
@@ -146,6 +147,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
+--- !u!114 &-918965127356606379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8184323479769560480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9adef0d7e39090c4ab5c46347d335ffa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chance: 3
+  diamond: {fileID: 2087936716542128326, guid: ad2a3696d0ca2a54d9355c287d6f872c, type: 3}
+  rb: {fileID: 0}
+  yOffset: 0.5
+  launch: 8
 --- !u!1001 &6548978806720312727
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -230,7 +248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5544924335040563851, guid: 9c3f3caa657cf5845b044c5a3c425a7a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.2
+      value: -3.5
       objectReference: {fileID: 0}
     - target: {fileID: 5544924335040563851, guid: 9c3f3caa657cf5845b044c5a3c425a7a, type: 3}
       propertyPath: m_LocalPosition.y
