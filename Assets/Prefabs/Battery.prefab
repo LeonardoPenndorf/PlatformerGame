@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 157089260707541815}
   - component: {fileID: 4003160762940344871}
   - component: {fileID: 7744822693774769484}
+  - component: {fileID: -4492561533754690293}
   m_Layer: 0
   m_Name: Battery
   m_TagString: Enemy
@@ -213,3 +214,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   box1: {fileID: 157089260707541815}
   box2: {fileID: 4003160762940344871}
+--- !u!114 &-4492561533754690293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5532046568483187090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11d0a034907070842a8288ca5f1fcad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerDamage: 2

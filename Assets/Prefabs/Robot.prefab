@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3784506117072400644}
   - component: {fileID: -7199088077219318981}
   - component: {fileID: 7583503484074556243}
+  - component: {fileID: -5780396369882555584}
   m_Layer: 0
   m_Name: Robot
   m_TagString: Enemy
@@ -141,7 +142,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0044556856, y: -0.049010575}
+  m_Offset: {x: -0.0022275448, y: -0.05792159}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -152,7 +153,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.68018746, y: 1.170293}
+  m_Size: {x: 0.65790987, y: 1.152471}
   m_EdgeRadius: 0
 --- !u!50 &-7199088077219318981
 Rigidbody2D:
@@ -198,3 +199,16 @@ MonoBehaviour:
   minX: 0
   maxX: 0
   rb: {fileID: -7199088077219318981}
+--- !u!114 &-5780396369882555584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5532046568483187090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11d0a034907070842a8288ca5f1fcad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerDamage: 1
