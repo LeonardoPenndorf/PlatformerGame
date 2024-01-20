@@ -73,7 +73,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy") && (invTime <= 0)) // if collison is enemy, take damage
+        if ((collision.CompareTag("Enemy") || collision.CompareTag("Explosion")) && (invTime <= 0)) // if collison is enemy or explosion, take damage
         {
             takeDamage(collision.gameObject.GetComponent<EnemyInfo>().PlayerDamage);
         }
