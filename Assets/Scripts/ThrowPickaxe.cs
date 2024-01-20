@@ -27,7 +27,7 @@ public class ThrowPickaxe : MonoBehaviour
         {
             spawnPickAxe();
             cooldown = maxCooldown;
-            pickaxeIcon.color = new Color(pickaxeIcon.color.r, pickaxeIcon.color.g, pickaxeIcon.color.b, 0.5f); // pickaxe icon becomes transparent when on cooldown
+            pickaxeIcon.color = new Color(pickaxeIcon.color.r, pickaxeIcon.color.g, pickaxeIcon.color.b, 0.2f); // pickaxe icon becomes transparent when on cooldown
         }
 
         cooldown -= Time.deltaTime; // countdown cooldown
