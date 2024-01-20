@@ -24,12 +24,16 @@ public class DiamondSpawn : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            int currentHealth = collision.gameObject.GetComponent<PlayerHealth>().currentHealth;
+            int maxHealth = collision.gameObject.GetComponent<PlayerHealth>().maxHealth;
             int y = Random.Range(0, 2); // either 0 or 1
 
-            if (y == 1)
-                spawnDiamond();
-            else
+            if (y == 0 && (currentHealth < maxHealth)) // only spanw healing, if current health < max health
                 spawnHealingHeart();
+                
+
+            else
+                spawnDiamond();
 
             Destroy(gameObject.GetComponent<DiamondSpawn>()); // destroy script to only spawn one diamond
         }

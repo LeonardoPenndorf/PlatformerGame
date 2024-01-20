@@ -17,6 +17,8 @@ public class PlayerHealth : MonoBehaviour
     public Sprite[] hearts;
     public Image heartsIcon;
 
+    public GameObject curtain;
+
     private void Start()
     {
         isDead = false;
@@ -40,7 +42,7 @@ public class PlayerHealth : MonoBehaviour
 
     void checkDead() 
     { 
-        if(currentHealth <= 0)
+        if(currentHealth <= 0 && !isDead)
             death();
         
         else if( !isDead )
@@ -65,6 +67,8 @@ public class PlayerHealth : MonoBehaviour
         GameObject.Find("MainCamera").GetComponent<CameraMovement>().cameraSpeed = 0;
 
         heartsIcon.sprite = hearts[0];
+        StartCoroutine(reloadDelay());
+        gameObject.GetComponent<PlayerDiamonds>().saveDiamonds();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -82,6 +86,9 @@ public class PlayerHealth : MonoBehaviour
             }
 
             Destroy(collision.gameObject);
+        } else if (collision.CompareTag("MainCamera") && !isDead) // die when toucngi camera collider
+        {
+            death();
         }
     }
 
@@ -98,6 +105,15 @@ public class PlayerHealth : MonoBehaviour
         yield return new WaitForSeconds(invDelay);
         sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 1);
         yield return new WaitForSeconds(invDelay);
+
+    }
+
+    IEnumerator reloadDelay()
+    {
+        yield return new WaitForSeconds(1);
+
+        curtain.SetActive(true);
+        curtain.GetComponent<CurtainScript>().fadeTo();
 
     }
 }
