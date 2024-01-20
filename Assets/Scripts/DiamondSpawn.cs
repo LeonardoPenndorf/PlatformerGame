@@ -5,7 +5,7 @@ using UnityEngine;
 public class DiamondSpawn : MonoBehaviour
 {
     public int chance;
-    public GameObject diamond;
+    public GameObject diamond, healingHeart;
     public Rigidbody2D rb;
     public float yOffset, launch;
 
@@ -24,13 +24,34 @@ public class DiamondSpawn : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            GameObject newDiamond = Instantiate(diamond) as GameObject;
+            int y = Random.Range(0, 2); // either 0 or 1
 
-            newDiamond.transform.position = new Vector3(transform.position.x, transform.position.y + yOffset, transform.position.z);
-            rb = newDiamond.GetComponent<Rigidbody2D>();
-            rb.velocity = new Vector2(0, launch);
+            if (y == 1)
+                spawnDiamond();
+            else
+                spawnHealingHeart();
 
             Destroy(gameObject.GetComponent<DiamondSpawn>()); // destroy script to only spawn one diamond
         }
     }
+
+    private void spawnDiamond()
+    {
+        GameObject newDiamond = Instantiate(diamond) as GameObject;
+
+        newDiamond.transform.position = new Vector3(transform.position.x, transform.position.y + yOffset, transform.position.z);
+        rb = newDiamond.GetComponent<Rigidbody2D>();
+        rb.velocity = new Vector2(0, launch);
+    }
+
+    private void spawnHealingHeart()
+    {
+        GameObject newHealingHeart = Instantiate(healingHeart) as GameObject;
+
+        newHealingHeart.transform.position = new Vector3(transform.position.x, transform.position.y + yOffset, transform.position.z);
+        rb = newHealingHeart.GetComponent<Rigidbody2D>();
+        rb.velocity = new Vector2(0, launch);
+    }
+
+
 }

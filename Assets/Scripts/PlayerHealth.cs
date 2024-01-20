@@ -69,9 +69,19 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy") && (invTime <= 0))
+        if (collision.CompareTag("Enemy") && (invTime <= 0)) // if collison is enemy, take damage
         {
             takeDamage(collision.gameObject.GetComponent<EnemyInfo>().PlayerDamage);
+        }
+        else if (collision.CompareTag("Healing")) // if collision is healing, heal
+        {
+            if (currentHealth < maxHealth)
+            {
+                currentHealth += 1;
+                heartsIcon.sprite = hearts[currentHealth];
+            }
+
+            Destroy(collision.gameObject);
         }
     }
 
