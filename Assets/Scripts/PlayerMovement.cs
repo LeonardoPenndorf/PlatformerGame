@@ -10,13 +10,14 @@ public class PlayerMovement : MonoBehaviour
     public bool isGrounded;
     public float x;
     public Animator anim;
+    public AudioManagerScript ams;
 
     // Update is called once per frame
     void Update()
     {
         x = Input.GetAxis("Horizontal");
 
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) && isGrounded)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && isGrounded)
         {
             Jump();
         }
@@ -39,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
+        ams.playSound(ams.sfx[0]); // play jump sound
         rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
     }
 

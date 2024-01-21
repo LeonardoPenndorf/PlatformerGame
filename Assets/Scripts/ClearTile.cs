@@ -15,7 +15,7 @@ public class ClearTile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((transform.position.x - cam.position.x) <= -20)
+        if ((transform.position.x - cam.position.x) <= -25)
             Destroy(gameObject);
 
     }

@@ -23,7 +23,7 @@ public class ThrowPickaxe : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (cooldown <= 0.0f && Input.GetMouseButtonDown(0)) // the player can onyl throw pickaxes when the cooldown is 0
+        if (cooldown <= 0.0f && Input.GetKeyDown(KeyCode.Return)) // the player can onyl throw pickaxes when the cooldown is 0
         {
             spawnPickAxe();
             cooldown = maxCooldown;

@@ -13,6 +13,7 @@ public class PlayerHealth : MonoBehaviour
     public Sprite dead;
     public bool isDead;
     public float yOffset; // move up slightly when dead
+    public AudioManagerScript ams;
 
     public Sprite[] hearts;
     public Image heartsIcon;
@@ -39,6 +40,7 @@ public class PlayerHealth : MonoBehaviour
     public void takeDamage(int damage)
     {
         currentHealth -= damage;
+        ams.playSound(ams.sfx[1]); // play take damge sound
         checkDead();
     }
 
@@ -66,12 +68,13 @@ public class PlayerHealth : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
         gameObject.GetComponent<SpriteRenderer>().sprite = dead;
-        GameObject.Find("MainCamera").GetComponent<CameraMovement>().cameraSpeed = 0;
+        GameObject.Find("MainCamera").GetComponent<CameraMovement>().speed = 0;
 
         heartsIcon.sprite = hearts[0];
         StartCoroutine(reloadDelay());
         gameObject.GetComponent<PlayerDiamonds>().saveDiamonds();
 
+        ams.playSound(ams.sfx[2]); // play game over sound when dead
         ps.Play();
     }
 
@@ -88,6 +91,8 @@ public class PlayerHealth : MonoBehaviour
             {
                 currentHealth += 1;
                 heartsIcon.sprite = hearts[currentHealth];
+
+                ams.playSound(ams.sfx[3]); // play diamond collect sound when healing
 
                 collision.gameObject.GetComponent<HealingHeart>().collected = true; // prevent double healing
             }

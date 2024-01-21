@@ -12,7 +12,7 @@ public class MapGeneration : MonoBehaviour
     public float spawnFrequency;
 
     // Start is called before the first frame update
-    void Start()
+    public void beginGame()
     {
         SpawnMapPiece();
     }
