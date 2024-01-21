@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class ExplosionScript : MonoBehaviour
 {
+    public GameObject smokeCloud;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,6 +17,12 @@ public class ExplosionScript : MonoBehaviour
 
 void selfDestruct() // is called at the end of the explosion animation
     {
-        Destroy(gameObject);
+        Destroy(gameObject); // destroy explosion
+    }
+
+    void spawnSmokeCloud()
+    {
+        GameObject newSmokeCloud = Instantiate(smokeCloud) as GameObject;
+        newSmokeCloud.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
     }
 }

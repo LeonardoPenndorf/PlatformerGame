@@ -19,6 +19,8 @@ public class PlayerHealth : MonoBehaviour
 
     public GameObject curtain;
 
+    public ParticleSystem ps; // play particle effect on death
+
     private void Start()
     {
         isDead = false;
@@ -69,6 +71,8 @@ public class PlayerHealth : MonoBehaviour
         heartsIcon.sprite = hearts[0];
         StartCoroutine(reloadDelay());
         gameObject.GetComponent<PlayerDiamonds>().saveDiamonds();
+
+        ps.Play();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -79,13 +83,14 @@ public class PlayerHealth : MonoBehaviour
         }
         else if (collision.CompareTag("Healing")) // if collision is healing, heal
         {
-            if (currentHealth < maxHealth)
+            bool collected = collision.gameObject.GetComponent<HealingHeart>().collected;
+            if (currentHealth < maxHealth && !collected)
             {
                 currentHealth += 1;
                 heartsIcon.sprite = hearts[currentHealth];
-            }
 
-            Destroy(collision.gameObject);
+                collision.gameObject.GetComponent<HealingHeart>().collected = true; // prevent double healing
+            }
         } else if (collision.CompareTag("MainCamera") && !isDead) // die when toucngi camera collider
         {
             death();
