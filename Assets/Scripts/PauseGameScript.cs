@@ -8,6 +8,7 @@ public class PauseGameScript : MonoBehaviour
 {
     public static bool gameIsPaused = false;
     public GameObject pauseMenuUI;
+    public ControlsPanel controlsPanel;
 
     void Update()
     {
@@ -26,6 +27,8 @@ public class PauseGameScript : MonoBehaviour
 
     public void pauseGame()
     {
+        controlsPanel.closeControlsPanel(); // ensure the buttons are active and not the controls panel
+
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
