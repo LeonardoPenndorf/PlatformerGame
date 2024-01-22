@@ -6,6 +6,14 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 public class ExplosionScript : MonoBehaviour
 {
     public GameObject smokeCloud;
+    public AudioManagerScript ams;
+
+    public void Start()
+    {
+        ams = GameObject.Find("AudioManager").GetComponent<AudioManagerScript>();
+        ams.playSound(ams.sfx[4]); // play explosion sound
+
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

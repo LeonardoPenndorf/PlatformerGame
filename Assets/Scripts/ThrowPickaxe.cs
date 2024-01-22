@@ -10,7 +10,7 @@ public class ThrowPickaxe : MonoBehaviour
     public float cooldown, maxCooldown; // after throwing the pick axe, wait for cooldown to end
     public GameObject pickaxe; // projectile
     public Rigidbody2D rb;
-    public float velocity, xOffset; // velocity and x offset of the pickaxe
+    public float velocity, offset; // velocity and x offset of the pickaxe
     public Image pickaxeIcon; // pickaxe icon in the UI
 
     // Start is called before the first frame update
@@ -42,18 +42,18 @@ public class ThrowPickaxe : MonoBehaviour
     {
         GameObject newPickAxe = Instantiate(pickaxe) as GameObject;
         float newVelocity = velocity;
-        float newXOffset = xOffset;
+        float newOffset = offset;
 
         if (transform.rotation.eulerAngles.y == 180.0)
         {
             newVelocity = -newVelocity;
-            newXOffset = -xOffset;
+            newOffset = -newOffset;
 
             newPickAxe.transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
         }
 
 
-        newPickAxe.transform.position = new Vector3(transform.position.x + newXOffset, transform.position.y, transform.position.z);
+        newPickAxe.transform.position = new Vector3(transform.position.x + newOffset, transform.position.y + newOffset, transform.position.z);
         rb = newPickAxe.GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(newVelocity, velocity);
     }
