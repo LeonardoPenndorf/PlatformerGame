@@ -5,6 +5,7 @@ using UnityEngine;
 public class StartGame : MonoBehaviour
 {
     public CameraMovement cameraMovement;
+    public CameraAcceleration cameraAcceleration;
     public MapGeneration mapGeneration;
     public Animator UIAnim;
 
@@ -14,6 +15,7 @@ public class StartGame : MonoBehaviour
         {
             mapGeneration.beginGame();
             cameraMovement.speed = cameraMovement.cameraSpeed;
+            cameraAcceleration.begin();
             UIAnim.SetTrigger("Start");
         }
     }

@@ -17,7 +17,7 @@ public class PlayerDiamonds : MonoBehaviour
 
         highscoreCounter.text = highscoreDiamonds.ToString();
 
-    }
+    } // get highscore diamonds and display it in the UI
 
     public void updateCounter()
     {

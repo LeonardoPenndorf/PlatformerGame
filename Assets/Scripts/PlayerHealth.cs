@@ -14,6 +14,7 @@ public class PlayerHealth : MonoBehaviour
     public bool isDead;
     public float yOffset; // move up slightly when dead
     public AudioManagerScript ams;
+    public CameraAcceleration cameraAcceleration; // camera acceleration script is imported for the saveTime function
 
     public Sprite[] hearts;
     public Image heartsIcon;
@@ -72,7 +73,8 @@ public class PlayerHealth : MonoBehaviour
 
         heartsIcon.sprite = hearts[0];
         StartCoroutine(reloadDelay());
-        gameObject.GetComponent<PlayerDiamonds>().saveDiamonds();
+        gameObject.GetComponent<PlayerDiamonds>().saveDiamonds(); // save diamonds highscore
+        cameraAcceleration.saveTime(); // save time highscore
 
         ams.playSound(ams.sfx[2]); // play game over sound when dead
         ps.Play();
