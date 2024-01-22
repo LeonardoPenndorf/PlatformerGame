@@ -162,9 +162,12 @@ MonoBehaviour:
   chance: 3
   diamond: {fileID: 2087936716542128326, guid: ad2a3696d0ca2a54d9355c287d6f872c, type: 3}
   healingHeart: {fileID: 3319589609990141756, guid: 19dc5c31150008d48ad60edd216770f0, type: 3}
+  bomb: {fileID: 7619522693161456274, guid: c49a31dcd303b8142ba8f8623720ed4c, type: 3}
   rb: {fileID: 0}
   yOffset: 0.5
   launch: 8
+  bombYoffset: 15
+  bombXOffset: 5
 --- !u!1001 &1333101100316804371
 PrefabInstance:
   m_ObjectHideFlags: 0

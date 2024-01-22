@@ -8,7 +8,7 @@ public class AudioManagerScript : MonoBehaviour
     public AudioSource[] sfx;
     public AudioSource music;
     public bool mutedMusic = false, mutedSfx = false;
-    public Button musicButton, sfxButton;
+    public Button musicButton, sfxButton, musicButtonPauseMenu, sfxButtonPauseMenu;
     public Color greyedOut;
 
     // Start is called before the first frame update
@@ -20,10 +20,13 @@ public class AudioManagerScript : MonoBehaviour
         if(mutedMusic)
         {
             musicButton.image.color = greyedOut;
+            musicButtonPauseMenu.image.color = greyedOut;
+
         }
         else
         {
             musicButton.image.color = Color.white;
+            musicButtonPauseMenu.image.color = Color.white;
         }
     }
 
@@ -38,10 +41,13 @@ public class AudioManagerScript : MonoBehaviour
         if (mutedSfx)
         {
             sfxButton.image.color = greyedOut;
+            sfxButtonPauseMenu.image.color = greyedOut;
         }
         else
         {
             sfxButton.image.color = Color.white;
+            sfxButtonPauseMenu.image.color = Color.white;
+
         }
     }
 
